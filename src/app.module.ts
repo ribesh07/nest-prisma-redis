@@ -18,5 +18,7 @@ import { ConfigModule } from '@nestjs/config';
       url: process.env.REDIS_URL || 'redis://127.0.0.1:6379',
     }),
   ],
+  controllers: [AppController],
+providers: [AppService],
 })
 export class AppModule {}
