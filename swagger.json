@@ -1,0 +1,112 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api": {
+      "get": {
+        "operationId": "AppController_getHello",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "System"
+        ]
+      }
+    },
+    "/api/ping": {
+      "get": {
+        "operationId": "AppController_getPing",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "System"
+        ]
+      }
+    },
+    "/api/product": {
+      "post": {
+        "description": "This is to Create a product",
+        "operationId": "ProductController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateProductDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Create Product",
+        "tags": [
+          "Product"
+        ]
+      },
+      "get": {
+        "operationId": "ProductController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Product"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "API",
+    "description": "API documentation for backend services",
+    "version": "1.0.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http",
+        "name": "Authorization",
+        "description": "Enter JWT token",
+        "in": "header"
+      }
+    },
+    "schemas": {
+      "CreateProductDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the product",
+            "example": "Laptop"
+          },
+          "price": {
+            "type": "number",
+            "description": "Price of the product",
+            "example": 999.99
+          }
+        },
+        "required": [
+          "name",
+          "price"
+        ]
+      }
+    }
+  }
+}
